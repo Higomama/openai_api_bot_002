@@ -4,6 +4,7 @@ import openai
 
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+
 model = "gpt-3.5-turbo"
 
 # st.session_stateを使いメッセージのやりとりを保存
@@ -31,7 +32,7 @@ def communicate():
 
 
 # ユーザーインターフェイスの構築
-st.title("がんばれソーライオンJr！")
+st.title("おしえてソーライオンJr！")
 st.title("You are my AI Assistant !")
 st.write("ChatGPT API（" + model + "）を使ったチャットボットです。")
 
@@ -41,8 +42,8 @@ if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
-        speaker = "🙂"
+        speaker = "🧑‍💼"
         if message["role"]=="assistant":
-            speaker="🤖"
+            speaker="🦁"
 
         st.write(speaker + ": " + message["content"])
